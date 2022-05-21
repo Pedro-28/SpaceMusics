@@ -25,7 +25,7 @@ class Favorites extends React.Component {
     if (loading) return <Loading />;
     return (
       <div data-testid="page-favorites">
-        <Header />
+        <Header active="2" />
         <div>
           { favorite.map((music) => (
             <MusicCard

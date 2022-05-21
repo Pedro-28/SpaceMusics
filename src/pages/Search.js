@@ -41,13 +41,14 @@ class Search extends React.Component {
     // if (loading) return <Loading />;
     return (
       <div data-testid="page-search">
-        <Header />
-        <div>
+        <Header active="1"  />
+        <div className="search">
           <input
             data-testid="search-artist-input"
             type="text"
             onChange={ this.handleSearch }
             value={ search }
+            placeholder="Search"            
           />
           <button
             data-testid="search-artist-button"
@@ -55,24 +56,27 @@ class Search extends React.Component {
             disabled={ disabled }
             onClick={ this.handleButton }
           >
-            Pesquisar
+            Search
           </button>
         </div>
         {loading && <Loading />}
         {result && (
           <section>
-            <h3>{`Resultado de álbuns de: ${searched}`}</h3>
-            <div>
+            <h3 className="searchResult" >{`Resultado de álbuns de: ${searched}`}</h3>
+            <div className="albums">
               {albums.length !== 0 ? (albums.map((album) => (
-                <div key={ album.collectionId }>
+                <div key={ album.collectionId } className="album">
+                  {console.log(album)}
                   <Link
+                    className="albumLink"
                     data-testid={ `link-to-album-${album.collectionId}` }
                     to={ `/album/${album.collectionId}` }
                   >
-                    {album.collectionName}
+                    <img src={album.artworkUrl100} alt={album.collectionName} />
+                    <h3>{album.collectionName}</h3>                    
                   </Link>
                 </div>
-              ))) : (<h3>Nenhum álbum foi encontrado</h3>)}
+              ))) : (<h3 className="searchResult">Nenhum álbum foi encontrado</h3>)}
             </div>
           </section>
         )}

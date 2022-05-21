@@ -32,21 +32,25 @@ class Login extends React.Component {
 
     return (
       <div data-testid="page-login">
-        <div>
+        <div className="loginDiv">
+          <h1 id="h1Login">Space Musics</h1>
+          <div className="inputDiv">
           <input
             data-testid="login-name-input"
             type="text"
+            placeholder="Type your Name"
             onChange={ (e) => this.handleInput(e) }
             value={ login }
-          />
+            />
           <button
             data-testid="login-submit-button"
             type="button"
             disabled={ disabled }
             onClick={ this.handleClick }
-          >
+            >
             Entrar
           </button>
+            </div>
         </div>
       </div>
     );

@@ -20,7 +20,7 @@ class Profile extends React.Component {
     const { user, loading } = this.state;
     return (
       <div data-testid="page-profile">
-        <Header />
+        <Header active="3"  />
         {loading ? <Loading /> : (
           <section>
             <div>

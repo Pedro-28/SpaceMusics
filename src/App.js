@@ -12,6 +12,7 @@ import Search from './pages/Search';
 class App extends React.Component {
   render() {
     return (
+      <section className="app">
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={ Login } />
@@ -24,6 +25,7 @@ class App extends React.Component {
           <Route path="/*" component={ NotFound } />
         </Switch>
       </BrowserRouter>
+      </section>
     );
   }
 }
