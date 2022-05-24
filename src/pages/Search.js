@@ -65,8 +65,7 @@ class Search extends React.Component {
             <h3 className="searchResult" >{`Resultado de álbuns de: ${searched}`}</h3>
             <div className="albums">
               {albums.length !== 0 ? (albums.map((album) => (
-                <div key={ album.collectionId } className="album">
-                  {console.log(album)}
+                <div key={ album.collectionId } className="album">                  
                   <Link
                     className="albumLink"
                     data-testid={ `link-to-album-${album.collectionId}` }

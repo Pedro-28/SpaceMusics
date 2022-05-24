@@ -4,64 +4,68 @@ import Loading from '../pages/Loading';
 import { addSong, removeSong } from '../services/favoriteSongsAPI';
 
 class MusicCard extends React.Component {
-state = {
-  check: false,
-  loading: false,
-}
-
-unmounted = false;
-
-componentDidMount() {
-  const { songObj: { trackId }, favorite } = this.props;
-  const checked = favorite.some((fav) => fav.trackId === trackId);
-  this.setState({ check: checked });
-}
-
-componentWillUnmount() {
-  this.unmounted = true;
-}
-
-handleCheckbox= async ({ target: { checked } }) => {
-  const { songObj, update } = this.props;
-  this.setState({ check: checked, loading: true });
-  if (checked) {
-    await addSong(songObj);
-    await update();
-  } else {
-    await removeSong(songObj);
-    await update();
+  state = {
+    check: false,
+    loading: false,
   }
-  if (!this.unmounted) {
-    this.setState({ loading: false });
-  }
-}
 
-render() {
-  const { songObj: { trackName, previewUrl, trackId } } = this.props;
-  const { loading, check } = this.state;
-  if (loading) return <Loading />;
-  return (
-    <div>
-      <h4>{trackName}</h4>
-      <audio data-testid="audio-component" src={ previewUrl } controls>
-        <track kind="captions" />
-        O seu navegador não suporta o elemento
-        <code>audio</code>
-        .
-      </audio>
-      <label htmlFor="checkFavorite">
-        Favorita
-        <input
-          data-testid={ `checkbox-music-${trackId}` }
-          type="checkbox"
-          id="checkFavorite"
-          onChange={ this.handleCheckbox }
-          checked={ check }
-        />
-      </label>
-    </div>
-  );
-}
+  unmounted = false;
+
+  componentDidMount() {
+    const { songObj: { trackId }, favorite } = this.props;
+    const checked = favorite.some((fav) => fav.trackId === trackId);
+    this.setState({ check: checked });
+  }
+
+  componentWillUnmount() {
+    this.unmounted = true;
+  }
+
+  handleCheckbox = async ({ target: { checked } }) => {
+    const { songObj, update } = this.props;
+    this.setState({ check: checked, loading: true });
+    if (checked) {
+      await addSong(songObj);
+      await update();
+    } else {
+      await removeSong(songObj);
+      await update();
+    }
+    if (!this.unmounted) {
+      this.setState({ loading: false });
+    }
+  }
+
+  render() {
+    const { songObj: { trackName, previewUrl, trackId } } = this.props;
+    const { loading, check } = this.state;
+    if (loading) return <Loading />;
+    return (
+      <div className="divAudio">
+        <h4>{trackName}</h4>
+        <div className="divInputAudio">
+          <audio data-testid="audio-component" src={previewUrl} controls>
+            <track kind="captions" />
+            O seu navegador não suporta o elemento
+            <code>audio</code>
+            .
+          </audio>
+          <label htmlFor={trackId}>
+            <span className={ check ? "material-symbols-outlined on" : "material-symbols-outlined" }>
+              grade
+            </span>
+            <input            
+              data-testid={`checkbox-music-${trackId}`}
+              type="checkbox"
+              id={trackId}
+              onChange={this.handleCheckbox}
+              checked={check}
+            />
+          </label>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default MusicCard;
