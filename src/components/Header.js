@@ -22,19 +22,23 @@ class Header extends React.Component {
       isLoading: false,
     });
   }
-
+  // isLoading
   render() {
     const { isLoading, userInfo } = this.state;
     const { active } = this.props;
 
-    if (isLoading) return <Loading />;
+    // if (isLoading) return <Loading />;
     return (
       <header data-testid="header-component">
         <div className="divTitle">
           <h1>Space Musics</h1>
           <div className="headerUserInfo">
-          <h4 data-testid="header-user-name">{userInfo.name}</h4>
-          <img className="headerUserImg" src={userInfo.image === '' ? DEFAULT_IMAGE : userInfo.image } alt={ userInfo.name } />
+            {isLoading ? (<Loading user="1" />) : (
+              <>
+                <h4 data-testid="header-user-name">{userInfo.name}</h4>
+                <img className="headerUserImg" src={userInfo.image === '' ? DEFAULT_IMAGE : userInfo.image} alt={userInfo.name} />
+              </>
+            )}
           </div>
         </div>
         <div className="divLinks">

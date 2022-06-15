@@ -38,7 +38,6 @@ class Search extends React.Component {
 
   render() {
     const { search, searched, disabled, loading, result, albums } = this.state;
-    // if (loading) return <Loading />;
     return (
       <div data-testid="page-search">
         <Header active="1"  />

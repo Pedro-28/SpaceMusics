@@ -49,7 +49,7 @@ class ProfileEdit extends React.Component {
     }
   }
 
-  handleChange= ({ target: { name, value } }) => {
+  handleChange = ({ target: { name, value } }) => {
     this.setState({ [name]: value }, this.handleValidation);
   }
 
@@ -61,55 +61,62 @@ class ProfileEdit extends React.Component {
       <div data-testid="page-profile-edit">
         <Header />
         {loading ? <Loading /> : (
-          <form>
-            <label htmlFor="editName">
-              <input
-                data-testid="edit-input-name"
-                name="userName"
-                type="text"
-                id="editName"
-                onChange={ this.handleChange }
-                value={ userName }
-              />
-            </label>
-            <label htmlFor="editEmail">
-              <input
-                data-testid="edit-input-email"
-                name="userEmail"
-                type="email"
-                id="editEmail"
-                onChange={ this.handleChange }
-                value={ userEmail }
-              />
-            </label>
-            <label htmlFor="editDescription">
-              <textarea
-                data-testid="edit-input-description"
-                name="userDescription"
-                id="editDescription"
-                onChange={ this.handleChange }
-                value={ userDescription }
-              />
-            </label>
-            <label htmlFor="editImage">
-              <input
-                data-testid="edit-input-image"
-                name="userImage"
-                type="text"
-                id="editImage"
-                onChange={ this.handleChange }
-                value={ userImage }
-              />
-            </label>
-            <button
-              data-testid="edit-button-save"
-              type="button"
-              onClick={ this.handleButton }
-              disabled={ disable }
-            >
-              Editar perfil
-            </button>
-          </form>
+          <section className="form-section-container">
+            <form className="form-container">
+              <label htmlFor="editName">
+                <input
+                  data-testid="edit-input-name"
+                  name="userName"
+                  type="text"
+                  id="editName"
+                  onChange={this.handleChange}
+                  value={userName}
+                  placeholder="Name"
+                />
+              </label>
+              <label htmlFor="editEmail">
+                <input
+                  data-testid="edit-input-email"
+                  name="userEmail"
+                  type="email"
+                  id="editEmail"
+                  onChange={this.handleChange}
+                  value={userEmail}
+                  placeholder="Email"
+                />
+              </label>
+              <label htmlFor="editDescription">
+                <textarea
+                  data-testid="edit-input-description"
+                  name="userDescription"
+                  id="editDescription"
+                  onChange={this.handleChange}
+                  value={userDescription}
+                  placeholder="Description"
+                  maxLength={150}
+                />
+              </label>
+              <label htmlFor="editImage">
+                <input
+                  data-testid="edit-input-image"
+                  name="userImage"
+                  type="text"
+                  id="editImage"
+                  onChange={this.handleChange}
+                  value={userImage}
+                  placeholder="Image Url"
+                />
+              </label>
+              <button
+                data-testid="edit-button-save"
+                type="button"
+                onClick={this.handleButton}
+                disabled={disable}
+              >
+                Edit Profile
+              </button>
+            </form>
+          </section>
         )}
       </div>
     );
