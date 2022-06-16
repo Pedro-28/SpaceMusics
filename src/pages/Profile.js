@@ -23,31 +23,33 @@ class Profile extends React.Component {
         <Header active="3" />
         {loading ? <Loading /> : (
           <section className="profile-container">
-                <Link to="/profile/edit">
-                  <span class="material-symbols-outlined edit-link-container">
-                    settings
-                  </span>
-                </Link>
-            <div className="profile-user-container">
-              <div>
-                <img
-                  className="userImg"
-                  data-testid="profile-image"
-                  src={user.image === '' ? DEFAULT_IMAGE : user.image}
-                  alt={user.name}
-                />
-              </div>
-              <div className="user-info-container">
-                <h3>Name</h3>
-                <p>{user.name}</p>
-              </div>
-              <div className="user-info-container">
-                <h3>Email</h3>
-                <p>{user.email}</p>
-              </div>
-              <div className="user-info-container">
-                <h3>Description</h3>
-                <p>{user.description}</p>
+            <div className="profile-user-link-container">
+              <Link to="/profile/edit" className="profile-link-edit-container">
+                <span className="material-symbols-outlined edit-link-container">
+                  settings
+                </span>
+              </Link>
+              <div className="profile-user-container">
+                <div>
+                  <img
+                    className="userImg"
+                    data-testid="profile-image"
+                    src={user.image === '' ? DEFAULT_IMAGE : user.image}
+                    alt={user.name}
+                  />
+                </div>
+                <div className="user-info-container">
+                  <h3>Name</h3>
+                  <p>{user.name}</p>
+                </div>
+                <div className="user-info-container">
+                  <h3>Email</h3>
+                  <p>{user.email}</p>
+                </div>
+                <div className="user-info-container">
+                  <h3>Description</h3>
+                  <p>{user.description}</p>
+                </div>
               </div>
             </div>
           </section>

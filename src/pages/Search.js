@@ -40,20 +40,21 @@ class Search extends React.Component {
     const { search, searched, disabled, loading, result, albums } = this.state;
     return (
       <div data-testid="page-search">
-        <Header active="1"  />
+        <Header active="1" />
         <div className="search">
           <input
             data-testid="search-artist-input"
             type="text"
-            onChange={ this.handleSearch }
-            value={ search }
-            placeholder="Search"            
+            onChange={this.handleSearch}
+            value={search}
+            placeholder="Search"
           />
           <button
             data-testid="search-artist-button"
+            className="button-container"
             type="button"
-            disabled={ disabled }
-            onClick={ this.handleButton }
+            disabled={disabled}
+            onClick={this.handleButton}
           >
             Search
           </button>
@@ -64,14 +65,14 @@ class Search extends React.Component {
             <h3 className="searchResult" >{`Resultado de álbuns de: ${searched}`}</h3>
             <div className="albums">
               {albums.length !== 0 ? (albums.map((album) => (
-                <div key={ album.collectionId } className="album">                  
+                <div key={album.collectionId} className="album">
                   <Link
                     className="albumLink"
-                    data-testid={ `link-to-album-${album.collectionId}` }
-                    to={ `/album/${album.collectionId}` }
+                    data-testid={`link-to-album-${album.collectionId}`}
+                    to={`/album/${album.collectionId}`}
                   >
                     <img src={album.artworkUrl100} alt={album.collectionName} />
-                    <h3>{album.collectionName}</h3>                    
+                    <h3>{album.collectionName}</h3>
                   </Link>
                 </div>
               ))) : (<h3 className="searchResult">Nenhum álbum foi encontrado</h3>)}

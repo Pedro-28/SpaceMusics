@@ -108,6 +108,7 @@ class ProfileEdit extends React.Component {
                 />
               </label>
               <button
+                className="button-container"
                 data-testid="edit-button-save"
                 type="button"
                 onClick={this.handleButton}

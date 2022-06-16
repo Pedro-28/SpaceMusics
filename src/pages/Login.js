@@ -6,7 +6,7 @@ import Loading from './Loading';
 const NUMBER_VALIDATION = 3;
 
 class Login extends React.Component {
-  state={
+  state = {
     login: '',
     disabled: true,
     isLoading: false,
@@ -18,7 +18,7 @@ class Login extends React.Component {
     });
   }
 
-  handleClick= async () => {
+  handleClick = async () => {
     const { login } = this.state;
     const { history } = this.props;
     this.setState({ isLoading: true });
@@ -35,22 +35,23 @@ class Login extends React.Component {
         <div className="loginDiv">
           <h1 id="h1Login">Space Musics</h1>
           <div className="inputDiv">
-          <input
-            data-testid="login-name-input"
-            type="text"
-            placeholder="Type your Name"
-            onChange={ (e) => this.handleInput(e) }
-            value={ login }
+            <input
+              data-testid="login-name-input"
+              type="text"
+              placeholder="Type your Name"
+              onChange={(e) => this.handleInput(e)}
+              value={login}
             />
-          <button
-            data-testid="login-submit-button"
-            type="button"
-            disabled={ disabled }
-            onClick={ this.handleClick }
+            <button
+              className="button-container"
+              data-testid="login-submit-button"
+              type="button"
+              disabled={disabled}
+              onClick={this.handleClick}
             >
-            Entrar
-          </button>
-            </div>
+              Entrar
+            </button>
+          </div>
         </div>
       </div>
     );

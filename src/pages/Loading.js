@@ -14,7 +14,7 @@ class Loading extends React.Component {
 export default Loading;
 
 Loading.propTypes = {
-  user: propTypes.func,
+  user: propTypes.string,
 };
 
 Loading.defaultProps = {

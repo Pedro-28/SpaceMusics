@@ -17,7 +17,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.loadingUser{
+
+.menu-component {
+  display: none;
+}
+
+.loadingUser {
   display: flex;
   justify-content: center;
 }
@@ -67,7 +72,6 @@ code {
   align-items: center;
   width: 100vw;
   height: 100vh;
-  /* background-color: #00161F; */
 }
 
 h1 {
@@ -116,7 +120,7 @@ input::placeholder {
   padding-left: 10px;
 }
 
-button {
+.button-container {
   width: 100px;
   height: 35px;
   border-style: none;
@@ -125,7 +129,7 @@ button {
   font-weight: bold;
 }
 
-button:enabled {
+.button-container:enabled {
   background-color: rgb(207, 207, 207);
 }
 
@@ -135,7 +139,6 @@ button:enabled {
 header {
   background-color: rgba(0, 0, 0, 0.274);
   color: rgb(207, 207, 207);
-  height: 190px;
 }
 
 .divTitle {
@@ -145,13 +148,16 @@ header {
   padding: 10px 20px 0;
 }
 
+.links-component {
+  width: 100%;
+}
+
 .divLinks {
   display: flex;
   justify-content: space-evenly;
 }
 
 .links {
-  /* color: rgb(207, 207, 207); */
   width: calc(100% /3);
   padding: 20px;
   font-weight: bold;
@@ -259,7 +265,6 @@ header {
 
 .divInputAudio {
   display: flex;
-  /* border: 2px solid white; */
   margin: 20px;
 }
 
@@ -287,7 +292,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  width: 100%;
 }
 
 .profile-user-container {
@@ -296,13 +301,26 @@ header {
   justify-content: center;
   align-items: center;
   gap: 35px;
-  background-color: rgb(207, 207, 207);
-  padding: 30px 0;
+  width: 100%;
+  min-height: 420px;
+}
+
+.profile-user-link-container {
+  display: flex;
+  flex-direction: column;
   width: 40%;
-  height: 420px;
+  margin: 40px 0;
+  background-color: rgb(207, 207, 207);
+  padding: 0 0 30px 0;
   border-radius: 20px;
   border: 2px solid black;
   box-shadow: 10px 20px 20px black;
+}
+
+.profile-link-edit-container {
+  display: flex;
+  flex-direction: row-reverse;
+  text-decoration: none;
 }
 
 .userImg {
@@ -331,11 +349,9 @@ header {
   width: 100%;
 }
 
+
 .edit-link-container {
-  position: absolute;
   color: black;
-  top: 305px;
-  right: 30%;
 
   font-variation-settings:
     'FILL' 1,
@@ -430,5 +446,167 @@ header {
   font-weight: bold;
   padding: 10px 20px;
   border-radius: 10px;
+
+}
+
+.menu-info-component {
+  visibility: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s;
+  overflow-y: hidden;
+}
+
+@media (min-width: 480px) {
+  .menu-info-component {
+    display: none;
+  }
+}
+
+@media (max-width: 950px) {
+  .albums {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 700px) {
+
+  h1 {
+    font-size: 3em;
+  }
+
+  #h1Login {
+    margin-bottom: 0;
+  }
+
+  .loginDiv {
+    width: 60%;
+    height: 300px;
+  }
+
+  input {
+    width: 100%;
+    height: 25px;
+    font-size: 20px;
+    font-family: sans-serif;
+    background-color: rgb(207, 207, 207);
+  }
+
+  input::placeholder {
+    font-size: 15px;
+    padding-left: 5px;
+  }
+
+  button {
+    width: 100px;
+    height: 25px;
+    font-size: 15px;
+  }
+
+  .headerUserInfo {
+    min-width: 120px;
+    padding: 5px;
+  }
+
+  .links {
+    padding: 10px;
+  }
+
+  .search {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 10px;
+    align-items: center;
+    margin: 30px auto;
+    width: 50%;
+  }
+
+  .search input {
+    width: 100%;
+    margin: 0;
+  }
+
+  .searchResult {
+    font-size: 1.3em;
+    margin: 0 0 50px 30px;
+  }
+
+  .albums {
+    column-count: 2;
+    margin: 30px auto;
+  }
+
+  .profile-user-link-container {
+    width: 50%;
+  }
+
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2.5em;
+  }
+
+  .divTitle {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .user-info-component {
+    display: none;
+  }
+
+  .menu-links {
+    display: none;
+  }  
+
+  .divLinks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .links {
+    width: 80%;
+    padding: 20px;
+    font-weight: bold;
+    text-align: center;
+    border: 2px solid rgba(0, 0, 0, 0.274);
+    border-radius: 15px;
+    text-decoration: none;
+  }
+
+  .menu-component {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    width: 45px;
+    border-style: none;
+  }
+
+  .albums {
+    column-count: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .album {
+    width: 60%;
+  }
+
+  .active {
+    display: flex;
+    flex-direction: column;
+    visibility: visible;
+    gap: 20px;
+    padding-bottom: 20px;
+    width: 60%;
+    height: auto;
+    margin: 20px auto;
+    overflow-y: auto;
+  }
 
 }
