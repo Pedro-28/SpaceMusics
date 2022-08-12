@@ -1,6 +1,5 @@
 # SpaceMusics
 
 <p>
-  O intúito da aplicação foi criar app de musicas fictício, o projeto foi desenvolvido ultilizando react, css puro, api do iTunes e o
-  localstorage.  
+  O intúito da aplicação foi criar app de músicas fictício, o projeto foi desenvolvido pensando na responsividade, utilizei react, css puro, api do iTunes   e localstorage.
 </p>
